@@ -73,7 +73,7 @@ class _storeDetailPageState extends State<storeDetailPage> {
                         icon: Container(
                           width: 50,
                           height: 50,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.white,
                             shape: BoxShape.circle,
                           ),
@@ -81,24 +81,24 @@ class _storeDetailPageState extends State<storeDetailPage> {
                             onTap: (){
                               Navigator.pop(context);
                             },
-                            child: Icon(
+                            child: const Icon(
 
                               Icons.arrow_back,
                               size: 18,
                             ),
                           ),
                         )),
-                    Spacer(),
+                    const Spacer(),
                     IconButton(
                         onPressed: () {},
                         icon: Container(
                           width: 50,
                           height: 50,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             color: Colors.white,
                             shape: BoxShape.circle,
                           ),
-                          child: Icon(
+                          child: const Icon(
                             Icons.favorite,
                             size: 18,
                           ),
@@ -107,7 +107,7 @@ class _storeDetailPageState extends State<storeDetailPage> {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Padding(
@@ -117,8 +117,8 @@ class _storeDetailPageState extends State<storeDetailPage> {
                 children: [
                   Text(
                   widget.name,
-                    style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold)),
-                  SizedBox(
+                    style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold)),
+                  const SizedBox(
                     height: 5,
                   ),
 
@@ -126,14 +126,14 @@ class _storeDetailPageState extends State<storeDetailPage> {
                     children: [
                       Container(
                         width: size.width - 30,
-                        child: Text(
+                        child: const Text(
                           'Cafe-Coffee & Tea - Breakfast and Brunch - Bakery \$',
                           style: TextStyle(fontSize: 14, height: 1.3),
                         ),
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Row(
@@ -151,7 +151,7 @@ class _storeDetailPageState extends State<storeDetailPage> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 8,
                       ),
                       Container(
@@ -159,15 +159,15 @@ class _storeDetailPageState extends State<storeDetailPage> {
                           color: textFieldColor,
                           borderRadius: BorderRadius.circular(3),
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(5),
+                        child: const Padding(
+                          padding: EdgeInsets.all(5),
                           child: Text(
                             "40-50 min",
                             style: TextStyle(fontSize: 14),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 8,
                       ),
                       Container(
@@ -179,23 +179,23 @@ class _storeDetailPageState extends State<storeDetailPage> {
                           padding: const EdgeInsets.all(5),
                           child: Row(
                             children: [
-                              Text(
+                              const Text(
                                 '4.7',
                                 style: TextStyle(fontSize: 14),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 2,
                               ),
-                              Icon(
+                              const Icon(
                                 Icons.star,
                                 color: Colors.yellow,
                                 size: 16,
                               ),
-                              Text(
+                              const Text(
                                 "16",
                                 style: TextStyle(fontSize: 14),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 2,
                               ),
                             ],
@@ -204,17 +204,17 @@ class _storeDetailPageState extends State<storeDetailPage> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Divider(
                     color: Colors.black.withOpacity(0.3),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text('Store info', style: customContent),
-                  SizedBox(
+                  const SizedBox(
                     height: 1,
                   ),
                   Row(
@@ -228,10 +228,10 @@ class _storeDetailPageState extends State<storeDetailPage> {
                               width: 15,
                               color: Colors.black.withOpacity(0.5),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 8,
                             ),
-                            Text("38 Park Row Frnt 4 ,New York ,1003")
+                            const Text("38 Park Row Frnt 4 ,New York ,1003")
                           ],
                         ),
                       ),
@@ -243,7 +243,7 @@ class _storeDetailPageState extends State<storeDetailPage> {
                                   color: primary)))
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Row(
@@ -253,7 +253,7 @@ class _storeDetailPageState extends State<storeDetailPage> {
                         size: 15,
                         color: primary,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 8,
                       ),
                       Text(
@@ -263,7 +263,7 @@ class _storeDetailPageState extends State<storeDetailPage> {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   SingleChildScrollView(
@@ -294,7 +294,7 @@ class _storeDetailPageState extends State<storeDetailPage> {
                       );
                     })),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Container(
@@ -314,7 +314,7 @@ class _storeDetailPageState extends State<storeDetailPage> {
                             style:
                                 TextStyle(color: Colors.black.withOpacity(0.5)),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
                           Padding(
@@ -324,7 +324,7 @@ class _storeDetailPageState extends State<storeDetailPage> {
                               children: [
                                 Container(
                                   width: (size.width - 70) * 0.8,
-                                  child: Text(
+                                  child: const Text(
                                     'There aren\'t enough courier\'s nearby , so the delivery fee is higher right now.',
                                     style: TextStyle(fontSize: 15),
                                   ),
@@ -347,13 +347,13 @@ class _storeDetailPageState extends State<storeDetailPage> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Divider(
                     color: Colors.black.withOpacity(0.3),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Column(
@@ -361,14 +361,14 @@ class _storeDetailPageState extends State<storeDetailPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Meanu'),
-                          Icon(LineIcons.search),
+                          const Text('Meanu'),
+                          const Icon(LineIcons.search),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
-                      Align(
+                      const Align(
                         alignment: Alignment.bottomLeft,
                         child: Text(
                           'Packed For You',
@@ -376,7 +376,7 @@ class _storeDetailPageState extends State<storeDetailPage> {
                               fontSize: 21, fontWeight: FontWeight.bold),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       Column(
@@ -392,28 +392,28 @@ class _storeDetailPageState extends State<storeDetailPage> {
                                   children: [
                                     Text(
                                       packForYou[index]['name'],
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.w600,
                                           fontSize: 18),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 10,
                                     ),
                                     Text(
                                       packForYou[0]['description'],
-                                      style: TextStyle(height: 1.3),
+                                      style: const TextStyle(height: 1.3),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 10,
                                     ),
                                     Text(
                                       packForYou[index]['price'],
-                                      style: TextStyle(height: 1.3),
+                                      style: const TextStyle(height: 1.3),
                                     )
                                   ],
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 15,
                               ),
                               Expanded(

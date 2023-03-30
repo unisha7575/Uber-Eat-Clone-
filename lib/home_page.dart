@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Row(
@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                                     children: [
                                       Text(
                                         nameList[index],
-                                        style: TextStyle(color: Colors.white),
+                                        style: const TextStyle(color: Colors.white),
                                       ),
                                     ],
                                   ),
@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                                     children: [
                                       Text(
                                         nameList[index],
-                                        style: TextStyle(color: Colors.black),
+                                        style: const TextStyle(color: Colors.black),
                                       ),
                                     ],
                                   ),
@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   );
                 })),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Padding(
@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(left: 15),
+                    margin: const EdgeInsets.only(left: 15),
                     height: 45,
                     width: size.width - 70,
                     decoration: BoxDecoration(
@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                                 "assets/images/pin_icon.svg",
                                 width: 20,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 5,
                               ),
                               Text(
@@ -145,17 +145,17 @@ class _HomePageState extends State<HomePage> {
                                     'assets/images/time_icon.svg',
                                     width: 20,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 8,
                                   ),
                                   Text(
                                     'Now',
                                     style: customContent,
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 2,
                                   ),
-                                  Icon(Icons.keyboard_arrow_down)
+                                  const Icon(Icons.keyboard_arrow_down)
                                 ],
                               ),
                             ),
@@ -164,7 +164,7 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 2,
                   ),
                   Expanded(
@@ -206,7 +206,7 @@ class _HomePageState extends State<HomePage> {
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 10, top: 10),
                   child: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Colors.white,
                     ),
                     child: Padding(
@@ -214,7 +214,7 @@ class _HomePageState extends State<HomePage> {
                       child: SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Container(
-                          margin: EdgeInsets.only(left: 30),
+                          margin: const EdgeInsets.only(left: 30),
                           child: Row(
                             children: List.generate(catagories.length, (index) {
                               return Padding(
@@ -225,7 +225,7 @@ class _HomePageState extends State<HomePage> {
                                       catagories[index]['img'],
                                       width: 40,
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 15,
                                     ),
                                     Text(catagories[index]['name'])
@@ -239,7 +239,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 )),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Container(
@@ -270,19 +270,19 @@ class _HomePageState extends State<HomePage> {
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                     Text(
                       firstMenu[0]['name'],
                       style:
-                          TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                          const TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
                     Row(
-                      children: [
+                      children: const [
                         Text(
                           'Sponsored',
                           style: TextStyle(fontSize: 14),
@@ -294,14 +294,14 @@ class _HomePageState extends State<HomePage> {
                         )
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
                     Text(
                       firstMenu[0]['description'],
-                      style: TextStyle(fontSize: 14),
+                      style: const TextStyle(fontSize: 14),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
                     Row(
@@ -319,7 +319,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 8,
                         ),
                         Container(
@@ -331,11 +331,11 @@ class _HomePageState extends State<HomePage> {
                             padding: const EdgeInsets.all(5),
                             child: Text(
                               firstMenu[0]['time'],
-                              style: TextStyle(fontSize: 14),
+                              style: const TextStyle(fontSize: 14),
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 8,
                         ),
                         Container(
@@ -347,7 +347,7 @@ class _HomePageState extends State<HomePage> {
                             padding: const EdgeInsets.all(5),
                             child: Text(
                               firstMenu[0]['deliveryFee'],
-                              style: TextStyle(fontSize: 14),
+                              style: const TextStyle(fontSize: 14),
                             ),
                           ),
                         )
@@ -357,7 +357,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
             Container(
@@ -367,11 +367,11 @@ class _HomePageState extends State<HomePage> {
                 color: textFieldColor,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
-              margin: EdgeInsets.only(left: 15, right: 15, bottom: 30),
+              margin: const EdgeInsets.only(left: 15, right: 15, bottom: 30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -379,7 +379,7 @@ class _HomePageState extends State<HomePage> {
                     "More to Explore ",
                     style: customTitle,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   SingleChildScrollView(
@@ -420,19 +420,19 @@ class _HomePageState extends State<HomePage> {
                                     )
                                   ],
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 15,
                                 ),
                                 Text(
                                   exploreMenu[index]['name'],
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 16, fontWeight: FontWeight.w400),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 8,
                                 ),
                                 Row(
-                                  children: [
+                                  children: const [
                                     Text(
                                       'Sponsored',
                                       style: TextStyle(fontSize: 14),
@@ -444,14 +444,14 @@ class _HomePageState extends State<HomePage> {
                                     )
                                   ],
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 8,
                                 ),
                                 Text(
                                   exploreMenu[index]['description'],
-                                  style: TextStyle(fontSize: 14),
+                                  style: const TextStyle(fontSize: 14),
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 8,
                                 ),
                                 Row(
@@ -469,7 +469,7 @@ class _HomePageState extends State<HomePage> {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 8,
                                     ),
                                     Container(
@@ -481,11 +481,11 @@ class _HomePageState extends State<HomePage> {
                                         padding: const EdgeInsets.all(5),
                                         child: Text(
                                           exploreMenu[index]['time'],
-                                          style: TextStyle(fontSize: 14),
+                                          style: const TextStyle(fontSize: 14),
                                         ),
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 8,
                                     ),
                                     Container(
@@ -499,21 +499,21 @@ class _HomePageState extends State<HomePage> {
                                           children: [
                                             Text(
                                               exploreMenu[index]['rate'],
-                                              style: TextStyle(fontSize: 14),
+                                              style: const TextStyle(fontSize: 14),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               width: 2,
                                             ),
-                                            Icon(
+                                            const Icon(
                                               Icons.star,
                                               color: Colors.yellow,
                                               size: 16,
                                             ),
                                             Text(
                                               exploreMenu[index]['rateNumber'],
-                                              style: TextStyle(fontSize: 14),
+                                              style: const TextStyle(fontSize: 14),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               width: 2,
                                             ),
                                           ],
@@ -537,7 +537,7 @@ class _HomePageState extends State<HomePage> {
             ),
 
             Container(
-              margin: EdgeInsets.only(left: 15, right: 15, bottom: 30),
+              margin: const EdgeInsets.only(left: 15, right: 15, bottom: 30),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -545,7 +545,7 @@ class _HomePageState extends State<HomePage> {
                     "More To Explore ",
                     style: customTitle,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   SingleChildScrollView(
@@ -585,19 +585,19 @@ class _HomePageState extends State<HomePage> {
                                       )
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 15,
                                   ),
                                   Text(
                                     popluarNearYou[index]['name'],
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontSize: 16, fontWeight: FontWeight.w400),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 8,
                                   ),
                                   Row(
-                                    children: [
+                                    children: const [
                                       Text(
                                         'Sponsored',
                                         style: TextStyle(fontSize: 14),
@@ -609,14 +609,14 @@ class _HomePageState extends State<HomePage> {
                                       )
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 8,
                                   ),
                                   Text(
                                     popluarNearYou[index]['description'],
-                                    style: TextStyle(fontSize: 14),
+                                    style: const TextStyle(fontSize: 14),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 8,
                                   ),
                                   Row(
@@ -634,7 +634,7 @@ class _HomePageState extends State<HomePage> {
                                           ),
                                         ),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 8,
                                       ),
                                       Container(
@@ -646,11 +646,11 @@ class _HomePageState extends State<HomePage> {
                                           padding: const EdgeInsets.all(5),
                                           child: Text(
                                             popluarNearYou[index]['time'],
-                                            style: TextStyle(fontSize: 14),
+                                            style: const TextStyle(fontSize: 14),
                                           ),
                                         ),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         width: 8,
                                       ),
                                       Container(
@@ -664,21 +664,21 @@ class _HomePageState extends State<HomePage> {
                                             children: [
                                               Text(
                                                 popluarNearYou[index]['rate'],
-                                                style: TextStyle(fontSize: 14),
+                                                style: const TextStyle(fontSize: 14),
                                               ),
-                                              SizedBox(
+                                              const SizedBox(
                                                 width: 2,
                                               ),
-                                              Icon(
+                                              const Icon(
                                                 Icons.star,
                                                 color: Colors.yellow,
                                                 size: 16,
                                               ),
                                               Text(
                                                 popluarNearYou[index] ['rateNumber'],
-                                                style: TextStyle(fontSize: 14),
+                                                style: const TextStyle(fontSize: 14),
                                               ),
-                                              SizedBox(
+                                              const SizedBox(
                                                 width: 2,
                                               ),
                                             ],

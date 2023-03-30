@@ -23,29 +23,29 @@ class _RootAppState extends State<RootApp> {
 
   Widget getBody() {
     List<Widget> pages = [
-      HomePage(),
-      Center(
+      const HomePage(),
+      const Center(
         child: Text(
           "Search Page",
           style: TextStyle(
               fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
         ),
       ),
-      Center(
+      const Center(
         child: Text(
           "Grocery Page",
           style: TextStyle(
               fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
         ),
       ),
-      Center(
+      const Center(
         child: Text(
           "Orders Page",
           style: TextStyle(
               fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
         ),
       ),
-      Center(
+      const Center(
         child: Text(
           "Account Page",
           style: TextStyle(
@@ -96,7 +96,7 @@ class _RootAppState extends State<RootApp> {
                       width: 22,
                       color: pageIndex == index ? Colors.black : Colors.grey,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Text(
