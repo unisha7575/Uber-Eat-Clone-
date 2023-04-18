@@ -30,11 +30,11 @@ List exploreMenu = [
 "time": "15-25 Min",
 //"delivery_fee": "\$1.00 Delivery Fee",
 "rate": "4.5",
-"rateNumber": "105"
+"rateNumber": "105",
 }, {
     "img":
     "https://images.unsplash.com/photo-1552895638-f7fe08d2f7d5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZCUyMG1jZG9uYWxkfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "isLiked": false,
+    "isLiked": true,
     "name": "McDonald's - LES (Delancey St)",
     "description": "American - Fast Food - Burgers",
     "time": "20-30 Min",

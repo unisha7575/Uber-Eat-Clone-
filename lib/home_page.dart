@@ -1,6 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:uber_eats_clone/favorite_screen.dart';
 import 'package:uber_eats_clone/home_page_state.dart';
 import 'package:uber_eats_clone/store_detail_page.dart';
 import 'package:uber_eats_clone/theme/style.dart';
@@ -16,6 +17,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int activeMeanu = 0;
+
+  // bool isFavorite = true;
+  List explorList = [];
 
   List nameList = nameList1;
 
@@ -39,62 +43,76 @@ class _HomePageState extends State<HomePage> {
               height: 15,
             ),
             Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(nameList.length, (index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 15),
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          activeMeanu = index;
-                        });
-                      },
-                      child: activeMeanu == index
-                          ? ElasticIn(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(30),
-                                  color: Colors.black,
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 25, right: 25, top: 8, bottom: 8),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        nameList[index],
-                                        style: const TextStyle(color: Colors.white),
+              children: [
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(nameList.length, (index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(right: 15),
+                        child: GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              activeMeanu = index;
+                            });
+                          },
+                          child: activeMeanu == index
+                              ? ElasticIn(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(30),
+                                      color: Colors.black,
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 25, right: 25, top: 8, bottom: 8),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            nameList[index],
+                                            style: const TextStyle(
+                                                color: Colors.white),
+                                          ),
+                                        ],
                                       ),
-                                    ],
+                                    ),
+                                  ),
+                                )
+                              : ElasticIn(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(30),
+                                      color: Colors.transparent,
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 25, right: 25, top: 8, bottom: 8),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            nameList[index],
+                                            style: const TextStyle(
+                                                color: Colors.black),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            )
-                          : ElasticIn(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(30),
-                                  color: Colors.transparent,
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 25, right: 25, top: 8, bottom: 8),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        nameList[index],
-                                        style: const TextStyle(color: Colors.black),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                    ),
-                  );
-                })),
+                        ),
+                      );
+                    })
+
+                ),
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>FavoriteScreen(exploreList: explorList,)));
+                  },
+                    child: const Icon(Icons.favorite,color: Colors.red,)),
+              ],
+            ),
             const SizedBox(
               height: 15,
+
             ),
             Padding(
               padding: const EdgeInsets.only(left: 15, right: 15),
@@ -275,8 +293,8 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Text(
                       firstMenu[0]['name'],
-                      style:
-                          const TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                      style: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.w400),
                     ),
                     const SizedBox(
                       height: 8,
@@ -303,6 +321,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const SizedBox(
                       height: 8,
+
                     ),
                     Row(
                       children: [
@@ -383,156 +402,186 @@ class _HomePageState extends State<HomePage> {
                     height: 15,
                   ),
                   SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children:List.generate(exploreMenu.length, (index) {
-                        return        GestureDetector(
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>storeDetailPage(image: exploreMenu[index]['img'],name:exploreMenu[index]['name'] ,)));
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: List.generate(exploreMenu.length, (index) {
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => storeDetailPage(
+                                            image: exploreMenu[index]['img'],
+                                            name: exploreMenu[index]['name'],
+                                          )));
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                right: 15,
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                          width: size.width,
+                                          height: 160,
+                                          child: Image(
+                                            image: NetworkImage(
+                                                exploreMenu[index]['img']),
+                                            fit: BoxFit.cover,
+                                          )),
+                                      Positioned(
+                                          bottom: 15,
+                                          right: 15,
+                                          child: InkWell(
+                                            onTap: () {
+                                              setState(() {
+                                                if (exploreMenu[index]
+                                                    ['isLiked']) {
+                                                  explorList
+                                                      .add(exploreMenu[index]);
+                                                }
+                                                print(explorList);
 
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                              right: 15,
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Stack(
-                                  children: [
-                                    Container(
-                                        width: size.width,
-                                        height: 160,
-                                        child: Image(
-                                          image:
-                                          NetworkImage(exploreMenu[index]['img']),
-                                          fit: BoxFit.cover,
-                                        )),
-                                    Positioned(
-                                      bottom: 15,
-                                      right: 15,
-                                      child: SvgPicture.asset(
-                                        firstMenu[0]['isLiked']
-                                            ? 'assets/images/loved_icon.svg'
-                                            : 'assets/images/love_icon.svg',
-                                        width: 20,
+                                                exploreMenu[index]['isLiked'] =
+                                                    !exploreMenu[index]
+                                                        ['isLiked'];
+                                              });
+                                            },
+                                            child: (exploreMenu[index]
+                                                    ["isLiked"])
+
+                                                ? const Icon(Icons.favorite_outline,
+                                                    color: Colors.red)
+                                                : const Icon(
+                                                    Icons.favorite,
+                                                    color: Colors.red,
+                                                  ),
+                                          )),
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 15,
+                                  ),
+                                  Text(
+                                    exploreMenu[index]['name'],
+                                    style: const TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                  const SizedBox(
+                                    height: 8,
+                                  ),
+                                  Row(
+                                    children: const [
+                                      Text(
+                                        'Sponsored',
+                                        style: TextStyle(fontSize: 14),
                                       ),
-                                    )
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 15,
-                                ),
-                                Text(
-                                  exploreMenu[index]['name'],
-                                  style: const TextStyle(
-                                      fontSize: 16, fontWeight: FontWeight.w400),
-                                ),
-                                const SizedBox(
-                                  height: 8,
-                                ),
-                                Row(
-                                  children: const [
-                                    Text(
-                                      'Sponsored',
-                                      style: TextStyle(fontSize: 14),
-                                    ),
-                                    Icon(
-                                      Icons.info,
-                                      size: 14,
-                                      color: Colors.grey,
-                                    )
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 8,
-                                ),
-                                Text(
-                                  exploreMenu[index]['description'],
-                                  style: const TextStyle(fontSize: 14),
-                                ),
-                                const SizedBox(
-                                  height: 8,
-                                ),
-                                Row(
-                                  children: [
-                                    Container(
-                                      decoration: BoxDecoration(
+                                      Icon(
+                                        Icons.info,
+                                        size: 14,
+                                        color: Colors.grey,
+                                      )
+                                    ],
+                                  ),
+                                  const SizedBox(
+                                    height: 8,
+                                  ),
+                                  Text(
+                                    exploreMenu[index]['description'],
+                                    style: const TextStyle(fontSize: 14),
+                                  ),
+                                  const SizedBox(
+                                    height: 8,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Container(
+                                        decoration: BoxDecoration(
+                                            color: textFieldColor,
+                                            borderRadius:
+                                                BorderRadius.circular(3)),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(3),
+                                          child: Icon(
+                                            Icons.hourglass_bottom,
+                                            color: primary,
+                                            size: 16,
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        width: 8,
+                                      ),
+                                      Container(
+                                        decoration: BoxDecoration(
                                           color: textFieldColor,
-                                          borderRadius: BorderRadius.circular(3)),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(3),
-                                        child: Icon(
-                                          Icons.hourglass_bottom,
-                                          color: primary,
-                                          size: 16,
+                                          borderRadius:
+                                              BorderRadius.circular(3),
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(5),
+                                          child: Text(
+                                            exploreMenu[index]['time'],
+                                            style:
+                                                const TextStyle(fontSize: 14),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    const SizedBox(
-                                      width: 8,
-                                    ),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        color: textFieldColor,
-                                        borderRadius: BorderRadius.circular(3),
+                                      const SizedBox(
+                                        width: 8,
                                       ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(5),
-                                        child: Text(
-                                          exploreMenu[index]['time'],
-                                          style: const TextStyle(fontSize: 14),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          color: textFieldColor,
+                                          borderRadius:
+                                              BorderRadius.circular(3),
                                         ),
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      width: 8,
-                                    ),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        color: textFieldColor,
-                                        borderRadius: BorderRadius.circular(3),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(5),
-                                        child: Row(
-                                          children: [
-                                            Text(
-                                              exploreMenu[index]['rate'],
-                                              style: const TextStyle(fontSize: 14),
-                                            ),
-                                            const SizedBox(
-                                              width: 2,
-                                            ),
-                                            const Icon(
-                                              Icons.star,
-                                              color: Colors.yellow,
-                                              size: 16,
-                                            ),
-                                            Text(
-                                              exploreMenu[index]['rateNumber'],
-                                              style: const TextStyle(fontSize: 14),
-                                            ),
-                                            const SizedBox(
-                                              width: 2,
-                                            ),
-                                          ],
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(5),
+                                          child: Row(
+                                            children: [
+                                              Text(
+                                                exploreMenu[index]['rate'],
+                                                style: const TextStyle(
+                                                    fontSize: 14),
+                                              ),
+                                              const SizedBox(
+                                                width: 2,
+                                              ),
+                                              const Icon(
+                                                Icons.star,
+                                                color: Colors.yellow,
+                                                size: 16,
+                                              ),
+                                              Text(
+                                                exploreMenu[index]
+                                                    ['rateNumber'],
+                                                style: const TextStyle(
+                                                    fontSize: 14),
+                                              ),
+                                              const SizedBox(
+                                                width: 2,
+                                              ),
+                                            ],
+                                          ),
                                         ),
-                                      ),
-                                    )
-                                  ],
-                                )
-                              ],
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
-                        );
-                      }
+                          );
+                        }
 
-
-                        //
-                    ),
-                  )
-                  )],
+                            //
+                            ),
+                      ))
+                ],
               ),
             ),
 
@@ -551,10 +600,16 @@ class _HomePageState extends State<HomePage> {
                   SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
-                        children:List.generate(popluarNearYou.length, (index) {
-                          return        GestureDetector(
-                            onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context)=>storeDetailPage(image: popluarNearYou[index]['img'],name:popluarNearYou[index]['name'])));
+                        children: List.generate(popluarNearYou.length, (index) {
+                          return GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => storeDetailPage(
+                                          image: popluarNearYou[index]['img'],
+                                          name: popluarNearYou[index]
+                                              ['name'])));
                             },
                             child: Padding(
                               padding: const EdgeInsets.only(
@@ -569,19 +624,20 @@ class _HomePageState extends State<HomePage> {
                                           width: size.width,
                                           height: 160,
                                           child: Image(
-                                            image:
-                                            NetworkImage(popluarNearYou[index]['img']),
+                                            image: NetworkImage(
+                                                popluarNearYou[index]['img']),
                                             fit: BoxFit.cover,
                                           )),
                                       Positioned(
                                         bottom: 15,
                                         right: 15,
-                                        child: SvgPicture.asset(
-                                          firstMenu[0]['isLiked']
-                                              ? 'assets/images/loved_icon.svg'
-                                              : 'assets/images/love_icon.svg',
-                                          width: 20,
-                                        ),
+                                        child: InkWell(
+                                          onTap: (){
+                                            setState(() {
+                                              popluarNearYou[index]['isLiked'] = !popluarNearYou[index]['isLiked'];
+                                            });
+                                          },
+                                            child: popluarNearYou[index]['isLiked']? Icon(Icons.favorite_outline):Icon(Icons.favorite))
                                       )
                                     ],
                                   ),
@@ -591,7 +647,8 @@ class _HomePageState extends State<HomePage> {
                                   Text(
                                     popluarNearYou[index]['name'],
                                     style: const TextStyle(
-                                        fontSize: 16, fontWeight: FontWeight.w400),
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w400),
                                   ),
                                   const SizedBox(
                                     height: 8,
@@ -624,7 +681,8 @@ class _HomePageState extends State<HomePage> {
                                       Container(
                                         decoration: BoxDecoration(
                                             color: textFieldColor,
-                                            borderRadius: BorderRadius.circular(3)),
+                                            borderRadius:
+                                                BorderRadius.circular(3)),
                                         child: Padding(
                                           padding: const EdgeInsets.all(3),
                                           child: Icon(
@@ -640,13 +698,15 @@ class _HomePageState extends State<HomePage> {
                                       Container(
                                         decoration: BoxDecoration(
                                           color: textFieldColor,
-                                          borderRadius: BorderRadius.circular(3),
+                                          borderRadius:
+                                              BorderRadius.circular(3),
                                         ),
                                         child: Padding(
                                           padding: const EdgeInsets.all(5),
                                           child: Text(
                                             popluarNearYou[index]['time'],
-                                            style: const TextStyle(fontSize: 14),
+                                            style:
+                                                const TextStyle(fontSize: 14),
                                           ),
                                         ),
                                       ),
@@ -656,7 +716,8 @@ class _HomePageState extends State<HomePage> {
                                       Container(
                                         decoration: BoxDecoration(
                                           color: textFieldColor,
-                                          borderRadius: BorderRadius.circular(3),
+                                          borderRadius:
+                                              BorderRadius.circular(3),
                                         ),
                                         child: Padding(
                                           padding: const EdgeInsets.all(5),
@@ -664,7 +725,8 @@ class _HomePageState extends State<HomePage> {
                                             children: [
                                               Text(
                                                 popluarNearYou[index]['rate'],
-                                                style: const TextStyle(fontSize: 14),
+                                                style: const TextStyle(
+                                                    fontSize: 14),
                                               ),
                                               const SizedBox(
                                                 width: 2,
@@ -675,8 +737,10 @@ class _HomePageState extends State<HomePage> {
                                                 size: 16,
                                               ),
                                               Text(
-                                                popluarNearYou[index] ['rateNumber'],
-                                                style: const TextStyle(fontSize: 14),
+                                                popluarNearYou[index]
+                                                    ['rateNumber'],
+                                                style: const TextStyle(
+                                                    fontSize: 14),
                                               ),
                                               const SizedBox(
                                                 width: 2,
@@ -691,14 +755,9 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                           );
-                        }
-
-
-
-
-                        ),
-                      )
-                  )],
+                        }),
+                      ))
+                ],
               ),
             )
           ],
