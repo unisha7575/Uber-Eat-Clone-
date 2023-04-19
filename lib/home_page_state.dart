@@ -52,11 +52,11 @@ List exploreMenu = [
     "rate": "4.5",
     "rateNumber": "133"
   },];
-const List popluarNearYou = [
+ List popularNearYou = [
   {
     "img":
     "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "isLiked": false,
+    "isLiked": true,
     "name": "Village Breakfast Snob",
     "description": "Breakfast and Brunch - American - Sandwich",
     "time": "20-30 Min",
@@ -66,7 +66,7 @@ const List popluarNearYou = [
   {
     "img":
     "https://images.unsplash.com/photo-1467453678174-768ec283a940?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mjd8fGZvb2R8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "isLiked": false,
+    "isLiked": true,
     "name": "Soho Finest Market",
     "description": "Breakfast aand Brunch - Juice and Smoothies",
     "time": "15-25 Min",

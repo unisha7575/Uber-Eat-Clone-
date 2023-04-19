@@ -64,7 +64,10 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                     child: Padding(
                                       padding: const EdgeInsets.only(
-                                          left: 25, right: 25, top: 8, bottom: 8),
+                                          left: 25,
+                                          right: 25,
+                                          top: 8,
+                                          bottom: 8),
                                       child: Row(
                                         children: [
                                           Text(
@@ -85,7 +88,10 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                     child: Padding(
                                       padding: const EdgeInsets.only(
-                                          left: 25, right: 25, top: 8, bottom: 8),
+                                          left: 25,
+                                          right: 25,
+                                          top: 8,
+                                          bottom: 8),
                                       child: Row(
                                         children: [
                                           Text(
@@ -100,19 +106,24 @@ class _HomePageState extends State<HomePage> {
                                 ),
                         ),
                       );
-                    })
-
-                ),
+                    })),
                 InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>FavoriteScreen(exploreList: explorList,)));
-                  },
-                    child: const Icon(Icons.favorite,color: Colors.red,)),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FavoriteScreen(
+                                    exploreList: explorList,
+                                  )));
+                    },
+                    child: const Icon(
+                      Icons.favorite,
+                      color: Colors.red,
+                    )),
               ],
             ),
             const SizedBox(
               height: 15,
-
             ),
             Padding(
               padding: const EdgeInsets.only(left: 15, right: 15),
@@ -279,12 +290,30 @@ class _HomePageState extends State<HomePage> {
                         Positioned(
                           bottom: 15,
                           right: 15,
-                          child: SvgPicture.asset(
-                            firstMenu[0]['isLiked']
-                                ? 'assets/images/loved_icon.svg'
-                                : 'assets/images/love_icon.svg',
-                            width: 20,
-                          ),
+                          child: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  firstMenu[0]['isLiked'] =
+                                      !firstMenu[0]['isLiked'];
+                                  if (firstMenu[0]['isLiked'] == false) {
+                                    explorList.add(firstMenu[0]);
+                                    //  print(explorList);
+                                  } else if (firstMenu[0]['isLiked'] == true) {
+                                    explorList.remove(firstMenu[0]);
+                                    //  print(explorList);
+                                  }
+                                });
+                              },
+                              child: firstMenu[0]['isLiked']
+                                  ? const Icon(
+                                      Icons.favorite_outline,
+                                      color: Colors.red,
+                                    )
+                                  : const Icon(
+                                      Icons.favorite,
+                                      color: Colors.red,
+                                    )),
+                          width: 20,
                         )
                       ],
                     ),
@@ -321,7 +350,6 @@ class _HomePageState extends State<HomePage> {
                     ),
                     const SizedBox(
                       height: 8,
-
                     ),
                     Row(
                       children: [
@@ -439,11 +467,17 @@ class _HomePageState extends State<HomePage> {
                                             onTap: () {
                                               setState(() {
                                                 if (exploreMenu[index]
-                                                    ['isLiked']) {
+                                                        ['isLiked'] ==
+                                                    true) {
                                                   explorList
                                                       .add(exploreMenu[index]);
+                                                } else if (exploreMenu[index]
+                                                        ['isLiked'] ==
+                                                    false) {
+                                                  explorList.remove(
+                                                      exploreMenu[index]);
                                                 }
-                                                print(explorList);
+                                                // print(explorList);
 
                                                 exploreMenu[index]['isLiked'] =
                                                     !exploreMenu[index]
@@ -452,8 +486,8 @@ class _HomePageState extends State<HomePage> {
                                             },
                                             child: (exploreMenu[index]
                                                     ["isLiked"])
-
-                                                ? const Icon(Icons.favorite_outline,
+                                                ? const Icon(
+                                                    Icons.favorite_outline,
                                                     color: Colors.red)
                                                 : const Icon(
                                                     Icons.favorite,
@@ -600,15 +634,15 @@ class _HomePageState extends State<HomePage> {
                   SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
-                        children: List.generate(popluarNearYou.length, (index) {
+                        children: List.generate(popularNearYou.length, (index) {
                           return GestureDetector(
                             onTap: () {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => storeDetailPage(
-                                          image: popluarNearYou[index]['img'],
-                                          name: popluarNearYou[index]
+                                          image: popularNearYou[index]['img'],
+                                          name: popularNearYou[index]
                                               ['name'])));
                             },
                             child: Padding(
@@ -625,27 +659,53 @@ class _HomePageState extends State<HomePage> {
                                           height: 160,
                                           child: Image(
                                             image: NetworkImage(
-                                                popluarNearYou[index]['img']),
+                                                popularNearYou[index]['img']),
                                             fit: BoxFit.cover,
                                           )),
                                       Positioned(
-                                        bottom: 15,
-                                        right: 15,
-                                        child: InkWell(
-                                          onTap: (){
-                                            setState(() {
-                                              popluarNearYou[index]['isLiked'] = !popluarNearYou[index]['isLiked'];
-                                            });
-                                          },
-                                            child: popluarNearYou[index]['isLiked']? Icon(Icons.favorite_outline):Icon(Icons.favorite))
-                                      )
+                                          bottom: 15,
+                                          right: 15,
+                                          child: InkWell(
+                                              onTap: () {
+                                                setState(() {
+                                                  popularNearYou[index]
+                                                          ['isLiked'] =
+                                                      !popularNearYou[index]
+                                                          ['isLiked'];
+                                                  if (popularNearYou[index]
+                                                          ['isLiked'] ==
+                                                      false) {
+                                                    explorList.add(
+                                                        popularNearYou[index]);
+                                                    print(
+                                                        "line no 3 ${explorList}");
+                                                  } else if (popularNearYou[
+                                                          index]['isLiked'] ==
+                                                      true) {
+                                                    explorList.remove(
+                                                        popularNearYou[index]);
+                                                    print(
+                                                        "line no 3 ${explorList}");
+                                                  }
+                                                });
+                                              },
+                                              child: popularNearYou[index]
+                                                      ['isLiked']
+                                                  ? const Icon(
+                                                      Icons.favorite_outline,
+                                                      color: Colors.red,
+                                                    )
+                                                  : const Icon(
+                                                      Icons.favorite,
+                                                      color: Colors.red,
+                                                    )))
                                     ],
                                   ),
                                   const SizedBox(
                                     height: 15,
                                   ),
                                   Text(
-                                    popluarNearYou[index]['name'],
+                                    popularNearYou[index]['name'],
                                     style: const TextStyle(
                                         fontSize: 16,
                                         fontWeight: FontWeight.w400),
@@ -670,7 +730,7 @@ class _HomePageState extends State<HomePage> {
                                     height: 8,
                                   ),
                                   Text(
-                                    popluarNearYou[index]['description'],
+                                    popularNearYou[index]['description'],
                                     style: const TextStyle(fontSize: 14),
                                   ),
                                   const SizedBox(
@@ -704,7 +764,7 @@ class _HomePageState extends State<HomePage> {
                                         child: Padding(
                                           padding: const EdgeInsets.all(5),
                                           child: Text(
-                                            popluarNearYou[index]['time'],
+                                            popularNearYou[index]['time'],
                                             style:
                                                 const TextStyle(fontSize: 14),
                                           ),
@@ -724,7 +784,7 @@ class _HomePageState extends State<HomePage> {
                                           child: Row(
                                             children: [
                                               Text(
-                                                popluarNearYou[index]['rate'],
+                                                popularNearYou[index]['rate'],
                                                 style: const TextStyle(
                                                     fontSize: 14),
                                               ),
@@ -737,7 +797,7 @@ class _HomePageState extends State<HomePage> {
                                                 size: 16,
                                               ),
                                               Text(
-                                                popluarNearYou[index]
+                                                popularNearYou[index]
                                                     ['rateNumber'],
                                                 style: const TextStyle(
                                                     fontSize: 14),
